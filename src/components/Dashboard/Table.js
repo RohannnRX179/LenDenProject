@@ -17,11 +17,11 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
         <thead>
           <tr>
             <th>No.</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Full Name</th>
+            <th>City</th>
             <th>Email</th>
-            <th>Salary</th>
-            <th>Date</th>
+            <th>PostalCode</th>
+            <th>Date of Last Update</th>
             <th colSpan={2} className="text-center">
               Actions
             </th>
@@ -33,31 +33,44 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
               <tr key={employee.id}>
                 <td>{i + 1}</td>
                 <td>{employee.firstName}</td>
-                <td>{employee.lastName}</td>
+                <td>{employee.lastName}</td>     
                 <td>{employee.email}</td>
-                <td>{formatter.format(employee.salary)}</td>
+                <td>{(employee.salary)}</td>
                 <td>{employee.date} </td>
                 <td className="text-right">
                   <button
                     onClick={() => handleEdit(employee.id)}
                     className="button muted-button"
+                    style={{
+                      backgroundColor: '#11CD25', // Darker background
+                      color: '#585D59 ', // Black text
+                      cursor: 'pointer',
+                      transition: 'background-color 0.3s',
+                    }}
                   >
-                    Edit
+                    Edit 
                   </button>
                 </td>
                 <td className="text-left">
                   <button
                     onClick={() => handleDelete(employee.id)}
                     className="button muted-button"
+                    style={{
+                      backgroundColor: '#D83A3A', // Lighter background
+                      color: '#131111', // White text
+                      cursor: 'pointer',
+                      transition: 'background-color 0.3s',
+
+                    }}
                   >
-                    Delete
+                    Delete 
                   </button>
                 </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan={7}>No Employees</td>
+              <td colSpan={7}>No Address Record</td>
             </tr>
           )}
         </tbody>

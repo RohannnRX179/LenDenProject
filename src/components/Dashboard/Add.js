@@ -47,7 +47,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
   return (
     <div className="small-container">
       <form onSubmit={handleAdd}>
-        <h1>Add Employee</h1>
+        <h1>Add New Address</h1>
         <label htmlFor="firstName">First Name</label>
         <input
           id="firstName"
@@ -56,7 +56,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
           value={firstName}
           onChange={e => setFirstName(e.target.value)}
         />
-        <label htmlFor="lastName">Last Name</label>
+        <label htmlFor="lastName">City</label>
         <input
           id="lastName"
           type="text"
@@ -72,7 +72,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <label htmlFor="salary">Salary ($)</label>
+        <label htmlFor="salary">Postal Code</label>
         <input
           id="salary"
           type="number"
@@ -80,7 +80,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
           value={salary}
           onChange={e => setSalary(e.target.value)}
         />
-        <label htmlFor="date">Date</label>
+        <label htmlFor="date">Date of Regestration</label>
         <input
           id="date"
           type="date"

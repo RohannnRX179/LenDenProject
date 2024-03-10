@@ -22,6 +22,15 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
       });
     }
 
+    if (isNaN(salary) || salary.toString().length > 6) {
+      return Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'PostalCode should be a number with a maximum length of 6.',
+        showConfirmButton: true,
+      });
+    }
+
     const employee = {
       id,
       firstName,
@@ -54,8 +63,8 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
   return (
     <div className="small-container">
       <form onSubmit={handleUpdate}>
-        <h1>Edit Employee</h1>
-        <label htmlFor="firstName">First Name</label>
+        <h1>Edit Address</h1>
+        <label htmlFor="firstName">Full Name</label>
         <input
           id="firstName"
           type="text"
@@ -63,7 +72,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
           value={firstName}
           onChange={e => setFirstName(e.target.value)}
         />
-        <label htmlFor="lastName">Last Name</label>
+        <label htmlFor="lastName">City</label>
         <input
           id="lastName"
           type="text"
@@ -79,13 +88,14 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <label htmlFor="salary">Salary ($)</label>
+        <label htmlFor="salary">PostalCode</label>
         <input
           id="salary"
           type="number"
           name="salary"
           value={salary}
           onChange={e => setSalary(e.target.value)}
+          maxLength="6" // Added maxLength attribute to restrict input length
         />
         <label htmlFor="date">Date</label>
         <input
@@ -96,7 +106,11 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
           onChange={e => setDate(e.target.value)}
         />
         <div style={{ marginTop: '30px' }}>
-          <input type="submit" value="Update" />
+          <input
+            type="submit"
+            value="Update"
+            style={{ backgroundColor: 'blue', color: 'white' }}
+          />
           <input
             style={{ marginLeft: '12px' }}
             className="muted-button"

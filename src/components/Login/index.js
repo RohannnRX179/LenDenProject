@@ -52,8 +52,8 @@ const Login = ({ setIsAuthenticated }) => {
   return (
     <div className="small-container">
       <form onSubmit={handleLogin}>
-        <h1>Admin Login</h1>
-        <label htmlFor="email">Email</label>
+        <h1>Address Admin Login:</h1>
+        <label htmlFor="email">Email Id:</label>
         <input
           id="email"
           type="email"
@@ -62,7 +62,7 @@ const Login = ({ setIsAuthenticated }) => {
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Password: </label>
         <input
           id="password"
           type="password"
